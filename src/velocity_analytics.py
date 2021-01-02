@@ -6,8 +6,15 @@ int_1 = pd.json_normalize(int_1['result'])
 int_2 = pd.read_json('/home/mw/Matematyka/projekt-python/data/test_1.json')
 int_2 = pd.json_normalize(int_2['result'])
 
-df = pd.merge(int_1, int_2, left_on='VehicleNumber', right_on='VehicleNumber', how='left').drop('VehicleNumber', axis=1)
-for index, row in df.iterrows():
-    kph = velocity_on_geoid(row['Lat_x'], row['Lon_x'], row['Lat_y'], row['Lon_y'], row['Time_x'], row['Time_y'])
-    if  kph > 50:
-        print(kph)
+def compute_velocity(dataframe1, dataframe2):
+    df = pd.merge(dataframe1, dataframe2, left_on='VehicleNumber', right_on='VehicleNumber', how='left').drop('VehicleNumber', axis=1)
+
+    df['kph'] = df.apply(lambda x: velocity_on_geoid(x['Lat_x'], x['Lon_x'], x['Lat_y'], x['Lon_y'], x['Time_x'], x['Time_y']), axis=1)
+
+    return df
+ 
+
+def find_50_kph(dataframe):
+    for index, row in dataframe.iterrows():
+        if  row > 50:
+            print(row)
