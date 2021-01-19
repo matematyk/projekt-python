@@ -1,10 +1,6 @@
 import pandas as pd
 from mwprojekt.velocity import velocity_on_geoid
 
-int_1 = pd.read_json('/home/mw/Matematyka/projekt-python/data/test_0.json')
-int_1 = pd.json_normalize(int_1['result'])
-int_2 = pd.read_json('/home/mw/Matematyka/projekt-python/data/test_1.json')
-int_2 = pd.json_normalize(int_2['result'])
 
 def compute_velocity(dataframe1, dataframe2):
     df = pd.merge(dataframe1, dataframe2, left_on='VehicleNumber', right_on='VehicleNumber', how='left').drop('VehicleNumber', axis=1)
