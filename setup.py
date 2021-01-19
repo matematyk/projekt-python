@@ -3,7 +3,7 @@ import io
 from setuptools import find_packages, setup
 
 setup(
-    name='projekt',
+    name='mwprojekt',
     version='1.0.0',
     url='https://github.com/matematyk/projekt-python',
     maintainer='Marcin Wierzbiński',
@@ -14,6 +14,7 @@ setup(
         'pandas',
         'pytest',
         'sklearn',
-        'pytest'
+        'pytest',
+        'jupyter'
     ],
 )
