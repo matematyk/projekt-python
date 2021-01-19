@@ -1,6 +1,6 @@
 import pytest
 
-from src.velocity import velocity_on_geoid
+from mwprojekt.velocity import velocity_on_geoid
 
 
 def test_velocity():
