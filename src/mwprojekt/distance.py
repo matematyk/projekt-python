@@ -1,7 +1,9 @@
 import math 
 
 def distance_on_geoid(lat1, lon1, lat2, lon2):
- 
+	if lat1== lat2 and lon1 == lon2:
+		return 0
+
 	# Convert degrees to radians
 	lat1 = lat1 * math.pi / 180.0
 	lon1 = lon1 * math.pi / 180.0

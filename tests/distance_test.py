@@ -1,6 +1,6 @@
 import pytest
 
-import mwprojekt.distance as dist 
+import src.mwprojekt.distance as dist 
 
 
 def test_velocity():
@@ -11,3 +11,9 @@ def test_velocity():
     print(x)
 
     #assert (x > 300)
+
+def test_distance_zero():
+    x = dist.distance_on_geoid(
+        lat1=1, lon1=2,
+        lat2=1, lon2=2
+    )
