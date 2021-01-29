@@ -1,9 +1,21 @@
 import pandas
-import configparser 
+import requests
+
+def get_courses(resource_id, api_key):
+    req = requests.get(
+        f"https://api.um.warszawa.pl/api/action/busestrams_get/?resource_id={resource_id}&apikey={api_key}&type=2"
+    )
+    data = req.json()
+
+    return data
 
 
-config = configparser.ConfigParser()
-config.read('config.ini')
-df = pandas.read_json('https://api.um.warszawa.pl/api/action/busestrams_get/?resource_id=f2e5503e-927d-4ad3-9500-4ab9e55deb59&apikey=9c9a80e9-68d1-4f74-8d49-c241f3f5649f&type=2')
+def collect_from_api(resource_id, api_key, save, date):
+    data = get_courses(resource_id, api_key)
+    df = pandas.DataFrame(pandas.json_normalize(data['result']))
 
-df.to_json('19.02.2021-3.json')
+    if save==True:
+        df.to_json('{0}.json'.format(date))
+
+    return df
+
