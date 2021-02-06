@@ -6,7 +6,7 @@ def get_courses(resource_id, api_key):
         f"https://api.um.warszawa.pl/api/action/busestrams_get/?resource_id={resource_id}&apikey={api_key}&type=2"
     )
     data = req.json()
-
+    
     return data
 
 

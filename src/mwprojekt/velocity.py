@@ -1,4 +1,4 @@
-from src.mwprojekt.distance import distance_on_geoid
+from mwprojekt.distance import distance_on_geoid
 from datetime import datetime
 
 
