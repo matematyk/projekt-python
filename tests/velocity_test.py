@@ -18,6 +18,9 @@ def test_velocity():
         date1='2020-11-27 16:00:19', 
         date2='2020-11-27 16:21:19'
     )
+
+    assert (x == 10.500178885144347 and y == 38.58859151033397)
+
 def test_velocity_date_zero():
     lon1 = 20.981478
     lat1 = 52.27493
@@ -25,14 +28,9 @@ def test_velocity_date_zero():
     lon2 = 20.983717
     lat2 = 52.27217
     date2 = "2020-12-23 23:11:43"
-    y = velocity_on_geoid(lat1, lon1, lat2, lon2, date1, date2)
+    v = velocity_on_geoid(lat1, lon1, lat2, lon2, date1, date2)
 
-    x = velocity_on_geoid(
-        lat1=52.271572, lon1=20.984068,
-        lat2=52.2687, lon2=21.037813, 
-        date1='2020-11-27 16:00:19', 
-        date2='2020-11-27 16:21:19'
-    )
+    assert (v == 0)
 
 def test_distance_zero():
     x = velocity_on_geoid(
@@ -41,3 +39,4 @@ def test_distance_zero():
         date1='2020-11-27 16:00:19', 
         date2='2020-11-27 16:21:19'
     )
+    assert (x == 0)

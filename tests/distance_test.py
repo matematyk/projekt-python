@@ -10,10 +10,11 @@ def test_velocity():
     )
     print(x)
 
-    #assert (x > 300)
+    assert (x > 300)
 
 def test_distance_zero():
     x = dist.distance_on_geoid(
         lat1=1, lon1=2,
         lat2=1, lon2=2
     )
+    assert (x == 0)

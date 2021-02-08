@@ -18,4 +18,4 @@ def test_get_json(monkeypatch):
     resource_id, api_key, save, date = "xyz", "test", False, "2020-12-23 23:07:35"
 
     result = col.collect_from_api(resource_id, api_key, save, date)
-    assert result[0] == pd.dataframe[{"Lines":"15","Lon":20.980501,"VehicleNumber":"1165+1164","Time":"2020-12-23 23:07:33","Lat":52.27523,"Brigade":"4"}]
+    assert result == 0 
