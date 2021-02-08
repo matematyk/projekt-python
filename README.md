@@ -1,7 +1,7 @@
 # projekt-python
 
 
-### instalaction
+### installation
 `pip install ./mwprojekt`
 
 ### venv activation
